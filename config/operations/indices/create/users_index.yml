@@ -1,0 +1,63 @@
+# Example: Create a users index
+# This operation will create an index to store user data
+
+# Specify the operation type
+operation: create_index
+
+# Name of the index to create
+index_name: users
+
+# Index settings
+settings:
+  # Number of primary shards (distributes data across nodes)
+  number_of_shards: 3
+  
+  # Number of replica shards (copies for high availability)
+  number_of_replicas: 2
+  
+  # Refresh interval (how often index is refreshed for search)
+  refresh_interval: "1s"
+
+# Index mappings (define the structure of documents)
+mappings:
+  properties:
+    # User ID field (exact match, not analyzed)
+    user_id:
+      type: keyword
+    
+    # Username field (full-text search enabled)
+    username:
+      type: text
+      fields:
+        # Also store as keyword for exact matching and sorting
+        keyword:
+          type: keyword
+    
+    # Email field (exact match)
+    email:
+      type: keyword
+    
+    # First and last name (full-text search)
+    first_name:
+      type: text
+    
+    last_name:
+      type: text
+    
+    # Account creation date
+    created_at:
+      type: date
+      format: "strict_date_optional_time||epoch_millis"
+   
+    # Account status
+    status:
+      type: keyword
+    
+    # User preferences (nested object)
+    preferences:
+      type: object
+      properties:
+        theme:
+          type: keyword
+        notifications:
+          type: boolean

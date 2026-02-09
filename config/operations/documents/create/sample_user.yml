@@ -1,0 +1,22 @@
+# Example: Index a sample document
+
+operation: index_document
+
+# Target index
+index_name: users
+
+# Document ID (optional - if not provided, Elasticsearch will generate one)
+doc_id: user_001
+
+# Document content
+document:
+  user_id: "U12345"
+  username: "john.doe"
+  email: "john.doe@example.com"
+  first_name: "John"
+  last_name: "Doe"
+  created_at: "2024-02-09T10:00:00Z"
+  status: "active"
+  preferences:
+    theme: "dark"
+    notifications: true

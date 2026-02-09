@@ -1,0 +1,56 @@
+# Example: Create an index template for logs
+# This template will automatically apply to any index matching the pattern "logs-*"
+
+operation: create_index_template
+
+# Name of the template
+template_name: logs_template
+
+# Index patterns - this template applies to indices matching these patterns
+index_patterns:
+  - "logs-*"  # Matches logs-2024, logs-app, etc.
+
+# Priority (higher priority templates override lower priority ones)
+priority: 100
+
+# Template definition
+template:
+  # Settings to apply to matching indices
+  settings:
+    number_of_shards: 3
+    number_of_replicas: 1
+    
+    # Lifecycle policy (optional - if using ILM)
+    # index.lifecycle.name: "logs_policy"
+  
+  # Mappings to apply to matching indices
+  mappings:
+    properties:
+      # Timestamp field (critical for time-series data)
+      timestamp:
+        type: date
+      
+      # Log level (info, warn, error, etc.)
+      level:
+        type: keyword
+      
+      # Log message
+      message:
+        type: text
+      
+      # Application name
+      app:
+        type: keyword
+      
+      # Environment
+      environment:
+        type: keyword
+      
+      # Host/server name
+      host:
+        type: keyword
+      
+      # Additional metadata
+      metadata:
+        type: object
+        enabled: true

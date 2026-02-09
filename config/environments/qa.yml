@@ -1,0 +1,12 @@
+# QA Environment Configuration
+
+elasticsearch:
+  host: elasticsearch-qa.example.com
+  port: 9200
+  scheme: https
+  # username: ${ES_USERNAME}
+  # password: ${ES_PASSWORD}
+  verify_certs: true
+
+stop_on_error: false
+report_file: ./reports/qa-execution-report.json

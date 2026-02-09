@@ -1,0 +1,14 @@
+# Python Dependencies
+# This file lists all Python packages required by the project
+# Install with: pip install -r requirements.txt
+
+# Elasticsearch Python client
+# Official client library for connecting to Elasticsearch
+elasticsearch>=8.0.0,<9.0.0
+
+# YAML parser
+# Used for reading YAML configuration files
+PyYAML>=6.0
+
+# Python standard library doesn't need to be listed
+# (logging, sys, os, argparse, etc. come with Python)

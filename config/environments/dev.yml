@@ -1,0 +1,35 @@
+# Development Environment Configuration
+# This file contains Elasticsearch connection settings for the DEV environment
+
+# Elasticsearch configuration
+elasticsearch:
+  # Hostname or IP address of the Elasticsearch server
+  host: elasticsearch-dev.example.com
+  
+  # Port number (default Elasticsearch HTTP port is 9200)
+  port: 9200
+  
+  # Connection scheme (http or https)
+  scheme: https
+  
+  # Authentication - Option 1: Basic Auth (username/password)
+  # Uncomment and set these values:
+  # username: ${ES_USERNAME}  # Use environment variable for security
+  # password: ${ES_PASSWORD}  # Use environment variable for security
+  
+  # Authentication - Option 2: API Key
+  # Uncomment and set this value:
+  # api_key: ${ES_API_KEY}  # Use environment variable for security
+  
+  # SSL/TLS certificate verification
+  verify_certs: true
+  
+  # Path to CA certificate (optional, for custom SSL certs)
+  # ca_certs: /path/to/ca_cert.pem
+
+# Execution behavior
+# Stop execution if any operation fails
+stop_on_error: false
+
+# Path to save execution report (optional)
+report_file: ./reports/dev-execution-report.json

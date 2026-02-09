@@ -1,0 +1,12 @@
+# UAT Environment Configuration
+
+elasticsearch:
+  host: elasticsearch-uat.example.com
+  port: 9200
+  scheme: https
+  # username: ${ES_USERNAME}
+  # password: ${ES_PASSWORD}
+  verify_certs: true
+
+stop_on_error: true  # Stop on errors in UAT
+report_file: ./reports/uat-execution-report.json
